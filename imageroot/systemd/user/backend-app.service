@@ -19,8 +19,8 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/backend-app.pid \
     --cidfile %t/backend-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/copilot.pod-id --replace -d --name backend-app \
     --env-file=%S/state/environment \
-    --volume ./data/copilot-backend-data/logs:/opt/logs \
-    --volume ./data/data:/opt/copilot/backend/data \
+    --volume copilot-logs:/opt/logs \
+    --volume copilot-data:/opt/copilot/backend/data \
     --env=COPILOT_* \
     --env SERVER_IP=0.0.0.0 \
     --env WAZUH_INDEXER_URL=https://1.1.1.1:9200 \
