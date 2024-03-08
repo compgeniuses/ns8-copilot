@@ -56,7 +56,7 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/backend-app.pid \
     --env EVENT_SHIPPER_URL=graylog_host \
     --env GELF_INPUT_PORT=gelf_port \
     --env ALERT_CREATION_PROVISIONING_URL=http://1.1.1.1 \
-    ${COPILOT_BACKEND_IMAGE} \
+    ${COPILOT_BACKEND_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/backend-app.ctr-id -t 10
 ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/backend-app.ctr-id
 ExecReload=/usr/bin/podman kill -s HUP backend-app
