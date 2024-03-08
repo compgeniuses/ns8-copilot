@@ -22,7 +22,7 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/copilot-app.pid \
     --cidfile %t/copilot-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/copilot.pod-id --replace -d --name  copilot-app \
     --env=COPILOTF_* \
-    --env SERVER_HOST=${SERVER_HOST \
+    --env SERVER_HOST=${SERVER_HOST} \
     ${COPILOT_FRONTEND_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/copilot-app.ctr-id -t 10
 ExecReload=/usr/bin/podman kill -s HUP copilot-app
