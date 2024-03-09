@@ -15,8 +15,10 @@ data = json.load(sys.stdin)
 
 # copilot CSRF settings
 host = data.get("host", "")
-url = "https://"+host
+SERVER_HOST = "https://"+host
 
+#copilot hostname
+agent.set_env("SERVER_HOST", SERVER_HOST)
 #This is specific to you module, so you need to change it accordingly.
 # we read a json stdin {"vars1":true, "var2":"foo", "vars3": 3} and we writ it to .config/state/environment
 # Upper case to set environment variable and minor case to read from stdin
