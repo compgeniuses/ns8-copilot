@@ -21,7 +21,7 @@ ExecStartPre=-runagent discover-smarthost
 ExecStart=/usr/bin/podman run --conmon-pidfile %t/copilot-app.pid \
     --cidfile %t/copilot-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/copilot.pod-id --replace -d --name  copilot-app \
-    --env=COPILOTF_* \
+    --env=COPILOT_* \
     --env SERVER_HOST=${url} \
     ${COPILOT_FRONTEND_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/copilot-app.ctr-id -t 10
