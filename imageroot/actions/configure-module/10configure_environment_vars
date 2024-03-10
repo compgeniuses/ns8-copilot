@@ -15,7 +15,8 @@ data = json.load(sys.stdin)
 
 # copilot CSRF settings
 host = data.get("host", "")
-SERVER_HOST = "https://"+host
+#SERVER_HOST = "https://"+host
+SERVER_HOST = host
 
 #copilot hostname
 agent.set_env("SERVER_HOST", SERVER_HOST)
